@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>TIENDA ADMIN</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+ 
+</head>
+<script src="./ajax/main.js"></script>
+
+<body class="bg-secondary">
+
+	<!-- Navbar BootStrap -->
+	<nav class="navbar navbar-light bg-light navbarExtra">
+	  <a class="navbar-brand" href="#">
+		 <h2 class="text-danger">DWEC (TIENDA:Panel de control) </h2>
+	  </a>  
+	  <button id="botonNuevoArticulo" class="btn btn-info">Nuevo Articulo</button> 
+	</nav>
+
+	<br>
+
+	<!-- Div contenedor de la tabla de articulos -->
+	<div id="contenedorTabla"></div>  
+	
+	<!-- Componente HTML para dialogos modales -->
+	<dialog id="miDialogo">
+		<div id="dialogHead">
+			<h2 class="text-center"> Añadir articulo  <span class="h5" ></span><h2>
+		</div>
+		<div id="dialogContent">
+			<form action="" name="formularioNuevoArticulo" id="formularioAnyadir">
+				<div style="display:flex;justify-content:space-between;padding-bottom: 5px;">
+					<label for="id">Código:</label>
+					<input id="id" name="articulo_id"></input>
+				</div>
+				<div style="display:flex;justify-content:space-between;padding-bottom: 5px;">
+					<label for="nombre">Nombre:</label>
+					<input type="text" id="nombre" name="articulo_nombre" />
+				</div>
+				<div style="display:flex;justify-content:space-between;padding-bottom: 5px;">
+					<label for="descripcion">Descripción:</label>
+					<input type="text" id="descripcion" name="articulo_descripcion" />
+				</div>
+				<div style="display:flex;justify-content:space-between;padding-bottom: 5px;">
+					<label for="precio">Precio:</label>
+					<input id="precio" name="articulo_precio"></input>
+				</div>
+		</div>
+		<div class="text-center">
+			<button id="btnCierraDialog" class="btn btn-secondary">Cancelar</button>
+			<button id="btnAnyadirArticulo"class="btn btn-info">Añadir</button>
+		</div>
+	</dialog>
+
+	<!-- Componente HTML para dialogos modales -->
+	<dialog id="dialogoModificar">
+		<div id="dialogHead">
+			<h2 class="text-center"> Modificar articulo  <span class="h5" ></span><h2>
+		</div>
+		<div id="dialogContentMod">
+			<form action="" name="formularioModificarArticulo" id="formularioModificar">
+				<div style="display:flex;justify-content:space-between;padding-bottom: 5px;">
+					<label for="id">Código:</label>
+					<input id="id_mod" name="articulo_id_mod" disabled></input>
+				</div>
+				<div style="display:flex;justify-content:space-between;padding-bottom: 5px;">
+					<label for="nombre">Nombre:</label>
+					<input type="text" id="nombre_mod" name="articulo_nombre_mod" />
+				</div>
+				<div style="display:flex;justify-content:space-between;padding-bottom: 5px;">
+					<label for="descripcion">Descripción:</label>
+					<input type="text" id="descripcion_mod" name="articulo_descripcion_mod" />
+				</div>
+				<div style="display:flex;justify-content:space-between;padding-bottom: 5px;">
+					<label for="precio">Precio:</label>
+					<input id="precio_mod" name="articulo_precio_mod"></input>
+				</div>
+		</div>
+		<div class="text-center">
+			<button id="btnCierraDialog" class="btn btn-secondary">Cancelar</button>
+			<button id="btnActualizaArticulo"class="btn btn-info">Añadir</button>
+		</div>
+	</dialog>
+	
+	
+
+</body>
+</html>
