@@ -83,7 +83,7 @@ function getById(id) {
     }
 }
 
-function nuevoArticulo() {
+function create() {
     //asignacion del dialogo 
     const dialogo = document.getElementById("miDialogo");
 
@@ -195,7 +195,7 @@ function borraArticulo(id) {
     }
 }
 
-function eventoNuevoArticulo() {
+function eventoCreate() {
     //boton efectuar pedido->tendrá que llamar a la función anyadirArticulo()
     document.getElementById("btnAnyadirArticulo").addEventListener('click', () => anyadirArticulo());
 }
@@ -213,8 +213,8 @@ window.onload = () => {
     let $botonNuevoArticulo = document.getElementById("botonNuevoArticulo");
     if ($botonNuevoArticulo) {
         $botonNuevoArticulo.addEventListener('click', (event) => {
-            nuevoArticulo();
-            eventoNuevoArticulo();
+            create();
+            eventoCreate();
         });
     }
     eventoActualizaArticulo();
