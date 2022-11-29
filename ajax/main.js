@@ -36,14 +36,14 @@ function pintarTabla(datosTabla) {
     contenedorTabla.innerHTML = htmlTabla;
 
     //adddEvenListener de los botones
-    Array.from(document.getElementsByClassName("btn btn-primary")).forEach(btn => btn.addEventListener("click", () => this.modificar(btn.id)));
+    Array.from(document.getElementsByClassName("btn btn-primary")).forEach(btn => btn.addEventListener("click", () => this.getById(btn.id)));
     Array.from(document.getElementsByClassName("btn btn-danger")).forEach(btn => btn.addEventListener("click", () => this.borraArticulo(btn.id)));
 
 }
 
 function get() {
 
-    //petición AJAX
+    //petición AJAX, la propia petición pinta la tabla actualizada
     let xhr = new XMLHttpRequest();
 
     xhr.open("GET", "http://localhost:3000/articulos");
@@ -64,7 +64,6 @@ function get() {
 
 function getById(id) {
 
-
     //petición AJAX pasando el id para que solo nos retorne ese articulo
     let xhr = new XMLHttpRequest();
 
@@ -76,16 +75,13 @@ function getById(id) {
 
     xhr.onload = function () {
         if (xhr.status == 200) {
+            //se llama a la función mostrarDialog,que abre el dialog y muestra el articulo recuperado
             mostrarDialogMod(xhr.response);
         } else {
             console.log("ERROR " + xhr.status + " " + xhr.statusText)
         }
     }
- 
-
 }
-
-
 
 function nuevoArticulo() {
     //asignacion del dialogo 
@@ -96,7 +92,7 @@ function nuevoArticulo() {
 
 function anyadirArticulo() {
 
-    //recuperacion de los valores introducidos en el formulario
+    //recuperacion de los valores introducidos en el formulario mediante nombre del campo en el formulario
     let id = document.formularioNuevoArticulo.articulo_id.value;
     let productoNombre = document.formularioNuevoArticulo.articulo_nombre.value;
     let productoDescripcion = document.formularioNuevoArticulo.articulo_descripcion.value;
@@ -123,13 +119,6 @@ function anyadirArticulo() {
     }
 
 
-}
-
-function modificar(idBoton) {
-
-    getById(idBoton);
-
-    
 }
 
 function actualizarArticulo(){
@@ -197,6 +186,8 @@ function borraArticulo(id) {
 
     xhr.onload = function () {
         if (xhr.status == 200) {
+            //si la peticion tiene exito, se llama a get para volver a recuperar los datos y pintar la tabla,
+            //funcion que ya está presente en el propio get
             get();
         } else {
             console.log("ERROR " + xhr.status + " " + xhr.statusText)
