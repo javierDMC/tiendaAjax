@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let fecha = new Date();
+
+        let diaMes = fecha.getDate();
+        let anyo = fecha.getFullYear();
+        let diaSemana = fecha.getDay();
+        let mes = fecha.getMonth();
+
+        function fechas(){
+            let diaMes = fecha.getDate();
+            let anyo = fecha.getFullYear();
+            let diaSemana = fecha.getDay();
+            let mes = fecha.getMonth();
+        }
+
+        fechas.prototype.hoyEs = ()=> {
+
+            console.log("HOY ES " + diaMes + " del " + mes + " del " + anyo);
+
+        }
+
+        let fechaObj = new fechas();
+        fechaObj.hoyEs();
+
+        // console.log(diaMes);
+
+        // console.log(anyo);
+
+        // console.log(diaSemana);
+
+        // console.log(mes);
+
+        // console.log("Hoy es " + diaMes + " del " + mes + " del " + anyo);
+
+        // console.log(diaMes);
+
+    </script>
+
+</body>
+
+</html>
